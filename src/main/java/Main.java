@@ -10,22 +10,22 @@ public class Main {
                 .addAnnotatedClass(entity.Student.class)
                 .configure();
 
-        Student student = new Student();
-        student.setId(1);
-        student.setName("Dinidu");
-        student.setAge(23);
-
         Session session;
         SessionFactory factory = config.buildSessionFactory();
         session = factory.openSession();
 
+/*        Student student = new Student();
+        student.setId(1);
+        student.setName("Dinidu");
+        student.setAge(23);
 
         Transaction tx = session.beginTransaction();
         session.persist(student);
-        tx.commit();
+        tx.commit();*/
 
-        Student student1 = session.find(Student.class, 1); // .get() can use but deprecated
-        System.out.println(student1);
+//        Student s1 = session.byId(Student.class).load(1); // Eager loading .get(), .find()
+        Student s1 = session.byId(Student.class).getReference(1); // Lazy loading
+
         session.close();
         factory.close();
     }
