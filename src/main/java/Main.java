@@ -6,9 +6,9 @@ import org.hibernate.cfg.Configuration;
 
 public class Main {
     public static void main(String[] args) {
-        Configuration config = new Configuration();
-        config.addAnnotatedClass(entity.Student.class);
-        config.configure();
+        Configuration config = new Configuration()
+                .addAnnotatedClass(entity.Student.class)
+                .configure();
 
         Student student = new Student();
         student.setId(1);
@@ -23,5 +23,10 @@ public class Main {
         Transaction tx = session.beginTransaction();
         session.persist(student);
         tx.commit();
+
+        Student student1 = session.find(Student.class, 1); // .get() can use but deprecated
+        System.out.println(student1);
+        session.close();
+        factory.close();
     }
 }
