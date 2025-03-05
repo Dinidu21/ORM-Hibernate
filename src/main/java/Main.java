@@ -14,17 +14,16 @@ public class Main {
         SessionFactory factory = config.buildSessionFactory();
         session = factory.openSession();
 
-/*        Student student = new Student();
-        student.setId(1);
-        student.setName("Dinidu");
-        student.setAge(23);
-
         Transaction tx = session.beginTransaction();
-        session.persist(student);
-        tx.commit();*/
+//        session.merge(student); // when we use merge if data not exist then will insert and update
+
+//        Student student = session.find(Student.class, 2);
+//        session.remove(student);
+
+        tx.commit();
 
 //        Student s1 = session.byId(Student.class).load(1); // Eager loading .get(), .find()
-        Student s1 = session.byId(Student.class).getReference(1); // Lazy loading
+//        Student s1 = session.byId(Student.class).getReference(1); // Lazy loading
 
         session.close();
         factory.close();
