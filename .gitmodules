@@ -1,3 +1,6 @@
 [submodule "101_Hibernate"]
 	path = 101_Hibernate
 	url = https://github.com/Dinidu21/ORM-Hibernate.git
+[submodule "subprojects/ORM-Hibernate"]
+	path = subprojects/ORM-Hibernate
+	url = https://github.com/Dinidu21/ORM-Hibernate.git
