@@ -20,6 +20,11 @@ public class Main {
 //        Student student = session.find(Student.class, 2);
 //        session.remove(student);
 
+        Student s1 = new Student();
+        s1.setId(1);
+        s1.setName("John");
+        s1.setAge(22);
+        session.persist(s1);
         tx.commit();
 
 //        Student s1 = session.byId(Student.class).load(1); // Eager loading .get(), .find()
