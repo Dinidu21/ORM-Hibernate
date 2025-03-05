@@ -1,4 +1,5 @@
 import entity.Student;
+import entity.StudentName;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,9 +22,13 @@ public class Main {
 //        session.remove(student);
 
         Student s1 = new Student();
-        s1.setId(1);
-        s1.setName("John");
-        s1.setAge(22);
+        StudentName studentName = new StudentName();
+        studentName.setFirstName("Dinidu");
+        studentName.setLastName("Sachintha");
+
+        s1.setId(2);
+        s1.setStudentName(studentName);
+        s1.setAge(23);
         session.persist(s1);
         tx.commit();
 
